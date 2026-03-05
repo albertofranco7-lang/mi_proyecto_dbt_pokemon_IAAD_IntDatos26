@@ -1,15 +1,9 @@
-Welcome to your new dbt project!
+Proyecto dbt - PokeAPI
+Este proyecto transforma datos de Pokémon cargados vía Airbyte en MotherDuck.
 
-### Using the starter project
+Capas del Proyecto:
+Staging: Limpieza de JSONs de habilidades y formas (stg_pokemon_abilities, stg_pokemon_forms).
 
-Try running the following commands:
-- dbt run
-- dbt test
+Intermediate: Unión de datos base y habilidades (int_pokemon_joined).
 
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Marts: Tabla final enriquecida para análisis (fct_pokemon_details).
