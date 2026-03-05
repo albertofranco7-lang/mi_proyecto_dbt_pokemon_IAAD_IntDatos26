@@ -1,0 +1,35 @@
+{
+    "sqltools.connections": [
+        {
+            "name": "Mi Proyecto DuckDB",
+            "accessMode": "Read Only",
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "databaseFilePath": "C:\\Users\\man-afranco\\mi_proyecto_dbt"
+        },
+        {
+            "name": "DuckDB",
+            "accessMode": "Read/Write",
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "databaseFilePath": "C:\\Users\\man-afranco\\mi_proyecto_dbt\\dev.duckdb",
+            "group": "Mi_proyecto_duckdb"
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer"
+    },
+    "duckdb.databases": [
+        {
+            "alias": "'md:airbyte_curso'",
+            "type": "manual",
+            "sql": "ATTACH 'md:airbyte_curso';",
+            "attached": true
+        }
+    ],
+    "duckdb.defaultDatabase": "airbyte_curso"
+}

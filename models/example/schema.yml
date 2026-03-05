@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fct_pokemon_details
+    description: "Tabla consolidada con detalles de habilidades y formas de Pokémon"
+    columns:
+      - name: pokemon_id
+        description: "ID único del Pokémon"
+        tests:
+          - not_null  # Valida que no haya IDs vacíos
+          - relationships: # Valida que el ID exista en la fuente original
+              to: source('main', 'pokemon')
+              field: id
+
+      - name: ability_name
+        description: "Nombre de la habilidad extraída del JSON"
+        tests:
+          - not_null
