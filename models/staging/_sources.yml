@@ -1,0 +1,8 @@
+version: 2
+sources:
+  - name: main
+    database: airbyte_curso
+    schema: main
+    tables:
+      - name: pokemon
+        description: "Tabla cruda cargada desde Airbyte con datos de la PokeAPI"
