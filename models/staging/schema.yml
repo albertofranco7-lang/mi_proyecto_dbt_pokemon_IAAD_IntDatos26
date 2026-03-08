@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_pokemon_abilities
+    description: "Modelado de habilidades de pokemon"
+    columns:
+      - name: pokemon_id
+        description: "ID único del pokemon"
+        tests:
+          - not_null
+      - name: ability_name
+        description: "Nombre de la habilidad"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_null:
+              arguments:
+                column_name: ability_name
+      - name: slot_number
+        description: "Número de slot de la habilidad"
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null:
+              arguments:
+                column_name: slot_number
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                column_name: slot_number
+                min_value: 1
+                max_value: 5
+          - dbt_expectations.expect_column_values_to_be_in_set:
+              arguments:
+                column_name: slot_number
+                value_set: [1, 2, 3]
+
+  - name: stg_pokemon_forms
+    description: "Modelado de las formas de los pokemon"
+    columns:
+      - name: pokemon_id
+        tests:
+          - not_null
+      - name: form_name
+        tests:
+          - unique
